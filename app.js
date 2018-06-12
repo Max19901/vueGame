@@ -9,7 +9,8 @@ new Vue ({
         blockButton: false,
         health: 1,
         turns: [],
-        monsters: ["img/monster1.png"]
+        monsters: ["img/monster1.png", "img/monster2.png"],
+        randomMonster: null
     },
     methods: {
         startGame: function() {
@@ -21,6 +22,8 @@ new Vue ({
             this.counterAttack = null;
             this.counterSpecialAttack = null;
             this.blockButton = false;
+            this.randomMonster = this.calculateDamage(1,2) - 1;
+            console.log('this.randomMonster: ', this.randomMonster);
         },
         attack: function () {
             var damage = this.calculateDamage(5, 12);
